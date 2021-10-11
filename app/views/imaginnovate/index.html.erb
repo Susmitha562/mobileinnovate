@@ -1,0 +1,44 @@
+
+<div >
+<%= link_to 'New User', imaginnovate_create_path, method: :post, class: "btn btn-success btn-lg float-right" %>
+</div>
+
+<br>
+<br>
+
+<table class="table table-hover">
+      <tr class="p-3 mb-2 bg-secondary text-white">
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Designation</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @emp.each do |emp| %>
+        <tr>
+          <td><%= emp.first_name%></td>
+          <td><%= emp.last_name%></td>
+          <td><%= emp.designation%></td>
+          <td><%= emp.email %></td>
+          <td><%= link_to 'show', imaginnovate_show_path(emp),  class: "btn btn-info" %></td>
+          <td><%= link_to 'Edit', imaginnovate_update_path(emp), method: :put, class: "btn btn-info" %></td>
+          <% if !emp.paranoia_destroyed? %>
+            <td><%= link_to 'Delete',soft_delete_or_restore_imaginnovate_path(emp), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", disabled: "disabled"%></td>
+          <% else %>
+            <td><%= link_to 'Restore',soft_delete_or_restore_imaginnovate_path(emp), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+          <% end %>
+          <!-- <td><%#= link_to 'Restore', method: :restore, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td> -->
+          <td><%= link_to 'Destroy',destroy_imaginnovate_path(emp), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+         
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+ 
+ 

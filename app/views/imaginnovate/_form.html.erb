@@ -1,0 +1,22 @@
+<%= form_for emp do |i| %>
+  <div class="field">
+    <%= i.label :first_name %><br />
+    <%= i.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= i.label :last_name %><br />
+    <%= i.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= i.label :designationdddd %><br />
+    <%= i.text_field :designation, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= i.label :email %><br />
+    <%= i.email_field :email, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= i.submit class:"btn btn-secondary" %>
+  </div>
+  <br>
+<% end %>
