@@ -1,0 +1,31 @@
+gModal{:class => "modal fade", :role => "for forms", "data-backdrop": "static"}
+<scss>
+  
+  #gModal .modal-content .modal-body #error{
+    color: #f89406;
+    font-weight: bold;
+  }
+
+</scss>
+<script>
+  
+  $(function(){
+    // Clear modal errors when hide modal
+    $("#gModal").on("hidden.bs.modal", function(){
+      $("#gModal #error").html("");
+      $('#gModal .modal-dialog').removeClass("modal-xlg modal-lg");
+    });
+  });
+
+  function showModel(title)
+  {
+    $("#gModal .modal-title").html(title);
+    $("#gModal").modal('show');
+  }
+  function hideModel()
+  {
+    $("#gModal").modal('hide');
+  }
+
+</script>
+

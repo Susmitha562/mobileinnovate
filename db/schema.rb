@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211007111626) do
+ActiveRecord::Schema.define(version: 20211012073056) do
 
   create_table "imaginnovates", force: :cascade do |t|
     t.string   "first_name",  limit: 255
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20211007111626) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.datetime "deleted_at"
+    t.integer  "user_id",     limit: 4
   end
 
   add_index "imaginnovates", ["deleted_at"], name: "index_imaginnovates_on_deleted_at", using: :btree
+  add_index "imaginnovates", ["user_id"], name: "index_imaginnovates_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "",    null: false

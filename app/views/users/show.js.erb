@@ -1,0 +1,9 @@
+<% if @screen_names.present? %>
+    $("#gModal .modal-body #content").html("<%= j render "/users/show" %>");
+    showModel("<%= t('screen_name') %>");
+<% else %>
+    showFlashMessage("info", "<%= t('nil_idea') %>");
+<% end %>
+
+
+

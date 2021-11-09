@@ -1,0 +1,94 @@
+<div>
+  <%= render 'imaginnovates/header' %>
+</div>
+<div >
+<%= link_to 'New Employee',  new_imaginnovate_path, method: :get, class: "btn btn-success btn-lg float-right" %>
+
+</div>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete , class: "buy" %> 
+<!-- redirect_to url_for(:controller => :users, :action => :show) -->
+<br>
+<script type="text/javascript">
+      function ttcheck(argument) {
+        // body...
+        // console.log('clicked ttcheck');
+        // debugger;
+        $('#myModal').css("display","block");
+      }
+     function btnclose(argument){
+    
+      $('#myModal').css("display","none");
+     }
+    
+   </script>
+   <button  id="myBtn" class="btn btn-secondary" onclick="ttcheck()">Profile</button><br>
+   
+  
+    <div id="myModal" class="modal" style="display: none;">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" style="text-align: right;" onclick="btnclose()">&times;</span>
+          <% if current_user %>
+          <table>
+            <tr>
+              <td >Id: </td>
+              <td ><%= current_user.id %></td>
+            </tr>
+            <tr>
+              <td>Email: </td>
+              <td><%= current_user.email %></td>
+            </tr>
+            <tr>
+              <td>Is Admin: </td>
+              <td><%= current_user.admin? ? 'Yes' : 'No' %></td>
+            </tr>
+          </table>
+          <% end %>
+       <!-- <p>Id: <%#= current_user.id %></p>
+       <p>Email:  <%#= current_user.email %></p>
+       <p>Admin:  <%#= current_user.admin? ? 'Yes' : 'No' %></p> -->
+         
+        
+        </div>
+      
+      </div>
+
+
+<table class="table table-hover" style="background-color:pink;color:white;padding:20px">
+      <tr style="background-color:pink;color:white;padding:20px" class="p-3 mb-2 bg-secondary text-white">
+        <th >Name</th>
+        <th>Lastname</th>
+        <th>Designation</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @emp.each do |emp| %>
+        <tr>
+          <td><%= emp.first_name%></td>
+          <td><%= emp.last_name%></td>
+          <td><%= emp.designation%></td>
+          <td><%= emp.email %></td>
+           <td><%= link_to 'show', imaginnovate_path(emp),  class: "btn btn-info" %></td>
+          <td><%= link_to 'Edit', imaginnovates_update_path(emp), method: :put, class: "btn btn-info" %></td>
+          <% if !emp.paranoia_destroyed? %>
+            <td><%= link_to 'Delete',soft_delete_or_restore_imaginnovate_path(emp), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", disabled: "disabled"%></td>
+          <% else %>
+            <td><%= link_to 'Restore',soft_delete_or_restore_imaginnovate_path(emp), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+          <% end %>
+          <!-- <td><%#= link_to 'Restore', method: :restore, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td> -->
+          <td><%= link_to 'Destroy',destroy_imaginnovates_path(emp), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+         
+
+
+         
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  

@@ -1,17 +1,26 @@
-<%= form_for emp do |i| %>
-  <div class="field">
+ <%= form_for @emp do |i| %>
+ <% if @emp.errors.any? %>
+  <h3>The following errors prevented the employee from being saved:</h3>
+  <ul>
+    <% @emp.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li> 
+    <% end %>
+  </ul>
+<% end %>
+
+  <div >
     <%= i.label :first_name %><br />
     <%= i.text_field :first_name, class: "form-control" %>
   </div>
-  <div class="field">
+  <div>
     <%= i.label :last_name %><br />
     <%= i.text_field :last_name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= i.label :designationdddd %><br />
+  <div >
+    <%= i.label :designation%><br />
     <%= i.text_field :designation, class: "form-control" %>
   </div>
-  <div class="field">
+  <div >
     <%= i.label :email %><br />
     <%= i.email_field :email, class: "form-control" %>
   </div>

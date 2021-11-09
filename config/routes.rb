@@ -12,20 +12,32 @@ Rails.application.routes.draw do
   # get 'imaginnovate/update'
 
   # get 'imaginnovate/destroy'
-   root 'imaginnovate#index'
+   # root 'users#sign_up'
+   root 'imaginnovates#index'
+   get 'users/index'
+   # controller :users do
+   #    get '/users/:id' => :show, as: 'users_show'
+   # end
+   # resources :users
 
-  devise_for :users
+   devise_for :users
   
-  controller :imaginnovate do
+  controller :imaginnovates do
     #get 'product/index' => :index, as: 'product_index'
-    post 'create/new' => :new, as: 'imaginnovate_create'
-    get '/imaginnovate/:id' => :show, as: 'imaginnovate_show'
-    put 'update/:id' => :edit, as: 'imaginnovate_update'
-    delete 'delete/:id' => :destroy, as: 'destroy_imaginnovate'
+    # post 'create/new' => :new, as: 'imaginnovates_create'
+    # get '/imag/:id' => :show, as: 'imaginnovates_show'
+    put 'update/:id' => :edit, as: 'imaginnovates_update'
+    delete 'delete/:id' => :destroy, as: 'destroy_imaginnovates'
   end
   
 
-  resources :imaginnovate do 
+  resources :imaginnovates do 
+    member do
+      get :imaginnovate
+    end 
+    collection do
+      post :new_imaginnovate
+    end
     delete 'soft_delete_or_restore' , on: :member
   end
   # The priority is based upon order of creation: first created -> highginnovateest priority.

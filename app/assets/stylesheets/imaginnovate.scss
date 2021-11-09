@@ -1,3 +1,77 @@
 // Place all the styles related to the imaginnovate controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.test {
+    background-color: #C5C9B8;
+}
+.box{
+	background-image: url(login-background.jpg);
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+
+}
+#addQuestion{
+    width: 400%;
+    color: #333333;
+    height: 500px;
+    margin: 50px 50px 50px 50px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    float: none;
+}
+.field{
+ color: white;
+
+}
+.a{
+color: white;	
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.buy{
+  color: #2da1c1;
+  font-size: medium;
+  text-decoration: none;
+  left: 252px;
+  float: right;
+
+}
